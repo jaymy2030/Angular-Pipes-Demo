@@ -1,0 +1,54 @@
+<mat-card class="">
+  <mat-card-title>Track Investment Value</mat-card-title>
+  <mat-card-subtitle>This is a stock value comparison.</mat-card-subtitle>
+  <mat-card-content> Please find more information regading your stocks. Here you can track your investment value</mat-card-content>
+</mat-card>
+
+
+<table border="1">
+  <thead>
+    <td>Id</td>
+    <td>Name</td>
+    <td>C.P.</td>
+    <td>P.P.</td>
+    <td>I.V</td>
+    <td>I.C</td>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of dataSource">
+      <td>{{ user.Id }}</td>
+      <td>{{ user.Name }}</td>
+      <td>{{ user.CurrentPrice }}</td>
+      <td>{{ user.PurchasePrice }}</td>
+      <td>{{ user.InvestmentValue  }}</td>
+      <td>{{ user.CurrentPrice - user.PurchasePrice | investmentstatus: user.CurrentPrice : user.PurchasePrice }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<mat-card class="">
+  <mat-card-title>Your Stock Performance</mat-card-title>
+  <mat-card-subtitle>This is a stock comparison.</mat-card-subtitle>
+  <mat-card-content> Find your best and worst performing stock so that you can make better trading decision</mat-card-content>
+</mat-card>
+
+<table border="1">
+  <thead>
+    <td>Id</td>
+    <td>Name</td>
+    <td>C.P.</td>
+    <td>P.P.</td>
+    <td>I.V</td>
+    <td>I.C</td>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of dataSource">
+      <td>{{ user.Id }}</td>
+      <td>{{ user.Name }}</td>
+      <td>{{ user.CurrentPrice }}</td>
+      <td>{{ user.PurchasePrice }}</td>
+      <td>{{ user.InvestmentValue  }}</td>
+      <td>{{user.InvestmentCompare | stockPerformance: user.CurrentPrice :user.PurchasePrice : 2 }}%</td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,47 @@
+
+
+<mat-card class="">
+  <mat-card-title>Your Stocks Portfolio</mat-card-title>
+  <mat-card-subtitle>This is a snapshot of your investment.</mat-card-subtitle>
+  <mat-card-content> Please find more information regading your stocks by clicking on a particular stock to view performance details</mat-card-content>
+</mat-card>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="sId">
+    <th mat-header-cell *matHeaderCellDef> ID. </th>
+    <td mat-cell *matCellDef="let element"> {{element.sId}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="sName">
+    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.sName}} </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="sCurrentPrice">
+    <th mat-header-cell *matHeaderCellDef> C. Price </th>
+    <td mat-cell *matCellDef="let element"> {{element.sCurrentPrice}} </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="sPurchasePrice">
+    <th mat-header-cell *matHeaderCellDef> P. Price </th>
+    <td mat-cell *matCellDef="let element"> {{element.sPurchasePrice}} </td>
+  </ng-container>
+   <!-- Symbol Column -->
+   <ng-container matColumnDef="sQty">
+    <th mat-header-cell *matHeaderCellDef> Qty </th>
+    <td mat-cell *matCellDef="let element"> {{element.sQty}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+
+
